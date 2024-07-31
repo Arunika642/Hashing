@@ -1,0 +1,33 @@
+// This line declares a function isSubsetUsingHashing that takes two constant references to vector<int> as parameters (arr1 and arr2).
+// The function returns a bool indicating whether arr2 is a subset of arr1.
+// This line creates an unordered_set<int> called hashSet and initializes it with the elements of arr1.
+// An unordered_set is a hash table-based set that allows for average O(1) time complexity for insertions and lookups.
+// This line iterates through each element of arr2 using a for loop.
+
+
+
+#include <iostream>
+using namespace std;
+#include <bits/stdc++.h>
+
+bool subset(vector<int>& arr1, vector<int>& arr2 ){
+  unordered_set<int> hashSet(arr1.begin(), arr2.end());
+  for(int num : arr2)
+    {
+      if(hashSet.find(num) == hashSet.end()){
+        return false;
+      }
+    }
+  return true;
+}
+int main(){
+  vector<int> arr1 ={1,2,3,4,2,5};
+  vector<int> arr2 ={1,2,3};
+  bool res = subset(arr1, arr2);
+  if(res){
+    cout<<"Yes";
+  }
+  else
+    cout<<"No";
+    
+}
