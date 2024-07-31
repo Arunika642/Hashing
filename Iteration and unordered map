@@ -1,0 +1,36 @@
+#include <iostream>
+#include <string>
+#include <map>
+#include <vector>
+
+using namespace std;
+
+int main(){
+  int n;
+  cin>> n;
+  int arr[n];
+  for(int i=0; i<n; i++) {
+    cin >> arr[i];
+
+  }
+ // pre compute using mapp
+  unordered_map<int, int> mpp; //We can also use unordered_map stores 
+                               //everything in an unordered way
+  for(int i=0; i<n; i++) {
+    mpp[arr[i]]++;
+  }
+  for(auto it: mpp) //iterating through the map
+    {
+      cout << it.first << " " << it.second << endl;
+    }
+
+  int q;
+  cin >> q;
+  while(q--)
+    {
+      int n;
+      cin>> n;
+      //fetch
+      cout << mpp[n] << endl;
+    }
+}
